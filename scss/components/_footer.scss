@@ -1,0 +1,114 @@
+@use '../foundation/mixins';
+
+footer {
+  text-align: center;
+  background-color: var(--clr-darker);
+}
+
+.footer-box {
+  text-align: center;
+  padding: var(--spacing-medium) var(--spacing-small);
+  @media screen and (min-width: 1000px) {
+    max-width: calc(var(--spacing-medium) * 2 + 61em);
+    margin: 0 auto;
+    @include mixins.flexbox;
+    justify-content: space-between;
+    padding: var(--spacing-medium);
+    gap: calc(var(--spacing-medium) * 2);
+  }
+
+  &-logo {
+    padding: var(--spacing-medium) 0 var(--spacing-small);
+  }
+
+  h4 {
+    font-size: 1em;
+    color: var(--clr-bright);
+  }
+
+  &-list {
+    margin: var(--spacing-medium) 0 var(--spacing-small);
+    @media screen and (min-width: 800px) {
+      flex-basis: 100%;
+    }
+    @media screen and (min-width: 1000px) {
+      flex-basis: auto;
+      text-align: left;
+      margin-right: calc(var(--spacing-medium) * 2);
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+    @media screen and (min-width: 1200px) {
+      margin-right: calc(var(--spacing-medium) * 3);
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: var(--spacing-medium);
+
+      li {
+        line-height: 200%;
+      }
+    }
+  }
+
+  &-icons {
+    display: inline-flex;
+    gap: var(--spacing-small);
+    margin: 0 auto;
+    padding-top: var(--spacing-small);
+    @media screen and (min-width: 1000px) {
+      align-items: flex-start;
+      margin: initial;
+      padding-top: var(--spacing-medium);
+    }
+
+    &__icon {
+      cursor: pointer;
+      &:hover path {
+        fill: var(--clr-accent);
+      }
+    }
+  }
+
+  a {
+    color: inherit;
+
+    &:hover,
+    &:focus {
+      color: var(--clr-accent-hov);
+    }
+  }
+
+  @media screen and (min-width: 800px) {
+    &-links {
+      @include mixins.flexbox;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    &-links {
+      font-size: 0.85em;
+      flex-grow: 1;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.attribution {
+  font-size: 0.875em;
+  padding: 0 var(--spacing-small) var(--spacing-small);
+
+  a {
+    color: var(--clr-accent);
+
+    &:hover {
+      color: var(--clr-accent-hov);
+    }
+  }
+}

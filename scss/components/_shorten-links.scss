@@ -1,0 +1,83 @@
+@use '../foundation/mixins';
+
+.shorten-links {
+  @media screen and (min-width: 1000px) {
+    max-width: calc(var(--spacing-medium) * 2 + 61em);
+    margin: 0 auto;
+  }
+}
+
+.shorten-links,
+.shorten-links-trans {
+  @include mixins.flexbox;
+  flex-direction: column;
+  gap: var(--spacing-small);
+  margin-top: var(--spacing-small);
+
+  &-box {
+    @include mixins.flexbox;
+    flex-direction: column;
+    background-color: var(--clr-bright);
+    border-radius: 0.5em;
+    @media screen and (min-width: 800px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--spacing-small) 0;
+    }
+
+    &__link,
+    &__short {
+      padding: calc(var(--spacing-small) / 2) var(--spacing-small);
+    }
+
+    &__link {
+      color: var(--clr-dark);
+      text-overflow: ellipsis;
+      border-bottom: 1px solid var(--clr-neural);
+      word-wrap: break-word;
+      @media screen and (min-width: 800px) {
+        border-bottom: 0;
+      }
+    }
+
+    &__short {
+      color: var(--clr-accent);
+      @media screen and (min-width: 800px) {
+        flex-grow: 1;
+        text-align: right;
+      }
+    }
+
+    & .btn {
+      margin: 0 var(--spacing-small) var(--spacing-small);
+      @media screen and (min-width: 800px) {
+        margin: 0 var(--spacing-small) 0;
+      }
+    }
+  }
+}
+
+.shorten-links-box.loading-link,
+.shorten-links-box.error-link {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  padding: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: height 200ms ease;
+}
+
+.shorten-links-box.loading-link.show,
+.shorten-links-box.error-link.show {
+  opacity: 1;
+  height: auto;
+}
+
+.shorten-links-box.error-link.show {
+  color: var(--clr-danger);
+  padding: var(--spacing-small);
+  background-color: var(--clr-bright);
+}

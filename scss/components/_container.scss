@@ -1,0 +1,8 @@
+.container-full {
+  background-color: var(--clr-light);
+  padding: var(--spacing-small);
+  position: relative;
+  @media screen and (min-width: 500px) {
+    padding: var(--spacing-small) var(--spacing-medium);
+  }
+}

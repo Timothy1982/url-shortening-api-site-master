@@ -1,0 +1,60 @@
+@use '../foundation/mixins';
+
+nav {
+  @media screen and (min-width: 1000px) {
+    padding-left: var(--spacing-medium);
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-medium);
+    text-align: center;
+    @media screen and (min-width: 1000px) {
+      @include mixins.flexbox;
+      list-style-type: none;
+      margin: 0;
+    }
+
+    li {
+      padding: calc(var(--spacing-small) / 4 * 6) var(--spacing-small);
+      position: relative;
+      @media screen and (min-width: 1000px) {
+        padding: 0 var(--spacing-small);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: -25%;
+        width: 150%;
+        height: 2px;
+        border-radius: 3px;
+        background-color: var(--clr-neural);
+        @media screen and (min-width: 1000px) {
+          display: none;
+        }
+      }
+
+      &:last-of-type::after {
+        display: none;
+      }
+
+      a {
+        color: var(--clr-text);
+        font-size: 0.875em;
+        font-weight: 700;
+        display: inline-block;
+        @media screen and (min-width: 1000px) {
+          padding: 0;
+        }
+
+        &:hover,
+        &:focus {
+          color: var(--clr-dark);
+        }
+      }
+    }
+  }
+}

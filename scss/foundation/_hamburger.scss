@@ -1,0 +1,34 @@
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  height: 3px;
+  width: 20px;
+  background-color: var(--clr-neural);
+  transition: all ease-in-out 500ms;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+}
+
+.hamburger::before {
+  transform: translateY(-7px);
+}
+
+.hamburger::after {
+  transform: translateY(4px);
+}
+
+.hamburger.open {
+  transform: rotate(45deg);
+
+  &::before {
+    opacity: 0;
+  }
+
+  &::after {
+    transform: translateY(-3px) rotate(-90deg);
+  }
+}

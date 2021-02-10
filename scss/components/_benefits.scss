@@ -1,0 +1,118 @@
+@use '../foundation/mixins';
+
+.benefits {
+  margin-top: var(--spacing-large);
+  @media screen and (min-width: 1000px) {
+    max-width: calc(var(--spacing-medium) * 2 + 61em);
+    margin: 0 auto;
+    margin-top: var(--spacing-large);
+  }
+
+  &-head {
+    text-align: center;
+    margin-bottom: var(--spacing-large);
+    @media screen and (min-width: 500px) {
+      max-width: 31.25em;
+      margin: 0 auto;
+      margin-bottom: var(--spacing-large);
+      padding: 0 var(--spacing-medium);
+    }
+    @media screen and (min-width: 1000px) {
+      padding: var(--spacing-small) var(--spacing-medium) 0;
+    }
+
+    h2 {
+      color: var(--clr-dark);
+    }
+  }
+
+  &-boxes {
+    text-align: center;
+    position: relative;
+    @media screen and (min-width: 800px) {
+      @include mixins.flexbox;
+      justify-content: space-between;
+      gap: var(--spacing-small);
+      text-align: left;
+      margin: calc(--spacing-large * 1.5) 0;
+    }
+    @media screen and (min-width: 1200px) {
+      gap: var(--spacing-medium);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 100%;
+      top: 0;
+      left: calc(50% - 3px);
+      background-color: var(--clr-accent);
+      @media screen and (min-width: 1200px) {
+        top: 35%;
+      }
+    }
+
+    &-box {
+      @include mixins.flexbox;
+      flex-direction: column;
+      position: relative;
+      z-index: 1;
+      background-color: var(--clr-bright);
+      position: relative;
+      padding: 2.5em var(--spacing-medium) var(--spacing-medium)
+        var(--spacing-medium);
+      margin-bottom: var(--spacing-large);
+      border-radius: 0.25em;
+      @media screen and (min-width: 800px) {
+        position: relative;
+        margin-bottom: calc(var(--spacing-large) * 2);
+
+        &:nth-child(2) {
+          top: var(--spacing-medium);
+        }
+
+        &:nth-child(3) {
+          top: calc(var(--spacing-medium) * 2);
+        }
+      }
+
+      h3 {
+        font-size: 1.25em;
+        margin-top: var(--spacing-medium);
+      }
+
+      @media screen and (min-width: 1000px) {
+        p {
+          font-size: 0.85em;
+        }
+      }
+    }
+
+    &-icon {
+      @include mixins.flexbox;
+      justify-content: center;
+      align-items: center;
+      height: 80px;
+      width: 80px;
+      margin: 0 auto;
+      position: absolute;
+      margin-top: -5em;
+      left: calc(50% - 40px);
+      border-radius: 50%;
+      background-color: var(--clr-primary);
+      @media screen and (min-width: 800px) {
+        left: var(--spacing-medium);
+      }
+    }
+
+    @media screen and (min-width: 800px) {
+      &::after {
+        width: 100%;
+        height: 6px;
+        left: 0;
+        top: 40%;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.bottom-hero {
+  color: var(--clr-light);
+  text-align: center;
+  background-color: var(--clr-primary);
+  background-image: url("../images/bg-boost-mobile.svg");
+  background-size: cover;
+  background-position: center;
+  padding: var(--spacing-large) var(--spacing-medium);
+  @media screen and (min-width: 800px) {
+    background-image: url("../images/bg-boost-desktop.svg");
+  }
+
+  p {
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+}

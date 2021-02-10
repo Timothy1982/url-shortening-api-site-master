@@ -1,0 +1,108 @@
+@use '../foundation/mixins';
+
+header {
+  @include mixins.flexbox;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-small);
+  @media screen and (min-width: 500px) {
+    padding: var(--spacing-small) var(--spacing-medium);
+  }
+  @media screen and (min-width: 1000px) {
+    max-width: calc(var(--spacing-medium) * 2 + 61em);
+    margin: 0 auto;
+    padding: var(--spacing-medium) var(--spacing-small);
+  }
+}
+
+.header {
+  &-logo {
+    img {
+      display: block;
+    }
+  }
+
+  &-menu {
+    &-nav {
+      position: fixed;
+      z-index: 9;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 100vh;
+      @include mixins.flexbox;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--clr-primary);
+      background: {
+        image: url("../images/bg-shorten-desktop.svg");
+        position: bottom;
+        size: cover;
+      }
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.25);
+      opacity: 0;
+      overflow-x: hidden;
+      transition: width 200ms ease-in-out, opacity 400ms ease;
+      @media screen and (min-width: 1000px) {
+        position: relative;
+        width: auto;
+        height: auto;
+        background: {
+          color: transparent;
+          image: none;
+        }
+        box-shadow: none;
+        flex-grow: 1;
+        opacity: 1;
+        overflow: visible;
+        @include mixins.flexbox;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      &-actions {
+        margin-top: var(--spacing-large);
+        @media screen and (min-width: 1000px) {
+          margin-top: 0;
+        }
+
+        &__link {
+          color: var(--clr-text);
+          @media screen and (min-width: 1000px) {
+            color: var(--clr-text);
+            font-size: 0.875em;
+            font-weight: 700;
+            display: inline-block;
+
+            &:hover,
+            &:focus {
+              color: var(--clr-dark);
+            }
+          }
+        }
+        .btn {
+          margin-left: var(--spacing-medium);
+          @media screen and (min-width: 1000px) {
+            margin-left: var(--spacing-medium);
+          }
+        }
+      }
+
+      &.open {
+        opacity: 1;
+        width: calc(100% - var(--spacing-medium));
+        transition: width 200ms ease-in-out, opacity 200ms ease;
+      }
+    }
+
+    &-toggle {
+      display: block;
+      cursor: pointer;
+      z-index: 10;
+      @media screen and (min-width: 1000px) {
+        display: none;
+      }
+    }
+  }
+}

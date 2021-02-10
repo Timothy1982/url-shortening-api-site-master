@@ -1,0 +1,42 @@
+.btn,
+.btn-hero {
+  color: var(--clr-bright);
+  font-size: inherit;
+  font-weight: 700;
+  text-decoration: inherit;
+  text-align: center;
+  line-height: 1;
+  letter-spacing: 1px;
+  background-color: var(--clr-accent);
+  padding: calc(var(--spacing-small) / 2) var(--spacing-small);
+  border: none;
+  border-radius: 0.5em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 200ms ease;
+
+  &:hover {
+    background-color: var(--clr-accent-hov);
+  }
+}
+
+.btn-hero,
+.btn-large {
+  padding: calc(var(--spacing-small) / 4 * 3) var(--spacing-medium);
+}
+
+.btn-hero {
+  border-radius: 9999em;
+}
+
+.btn-round {
+  border-radius: 9999em;
+}
+
+.btn-copied {
+  background-color: var(--clr-primary);
+
+  &:hover {
+    background-color: var(--clr-dark);
+  }
+}

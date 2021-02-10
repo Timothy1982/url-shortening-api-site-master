@@ -1,0 +1,29 @@
+//
+// Let's get the foundation of this
+@use 'foundation/variables';
+@use 'foundation/resets';
+@use 'foundation/mixins';
+@use 'foundation/hamburger';
+@use 'foundation/buttons';
+@use 'foundation/loader';
+@use 'foundation/short-links-transition';
+
+//
+// Components
+// You know, we need some kind of elements on the page. :)
+@use 'components/body';
+@use 'components/links';
+@use 'components/vue-container';
+@use 'components/nav';
+@use 'components/header';
+@use 'components/hero';
+@use 'components/container';
+@use 'components/shorten-form.scss';
+@use 'components/shorten-links';
+@use 'components/benefits';
+@use 'components/bottom-hero';
+@use 'components/footer';
+
+//
+// Import used Fonts
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,500&display=swap");
