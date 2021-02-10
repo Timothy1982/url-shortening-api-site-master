@@ -473,6 +473,11 @@ header {
     padding-left: auto;
   }
 }
+@media screen and (min-width: 1340px) {
+  .hero-image {
+    overflow: visible;
+  }
+}
 .hero-image img {
   width: 130%;
   height: auto;
